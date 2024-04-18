@@ -2,6 +2,7 @@ package com.Java.LoanApp.ServiceImp;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Java.LoanApp.Model.Company;
@@ -10,7 +11,8 @@ import com.Java.LoanApp.Service.OrganizeService;
 
 @Service
 public class OrganizeServiceImp implements OrganizeService {
-
+    
+	@Autowired
 	private CompanyRepo comrepo;
 
 	public OrganizeServiceImp(CompanyRepo comrepo) {

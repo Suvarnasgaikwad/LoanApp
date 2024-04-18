@@ -1,5 +1,6 @@
 package com.Java.LoanApp.ServiceImp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Java.LoanApp.Model.AccHolder;
@@ -8,7 +9,7 @@ import com.Java.LoanApp.Service.AccHolderService;
 
 @Service
 public class AccHolderServiceImp implements AccHolderService {
-
+    @Autowired
 	private AccHolderRepo acchold;
 
 	public AccHolderServiceImp(AccHolderRepo acchold) {
@@ -30,7 +31,7 @@ public class AccHolderServiceImp implements AccHolderService {
 	}
 
 	@Override
-	public String  deleteAcc(int id) {
+	public String deleteAcc(int id) {
 		boolean value = acchold.existsById(id);
 
 		if (value == false) {

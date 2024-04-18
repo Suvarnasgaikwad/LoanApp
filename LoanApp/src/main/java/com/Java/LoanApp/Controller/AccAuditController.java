@@ -1,5 +1,6 @@
 package com.Java.LoanApp.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,8 @@ import com.Java.LoanApp.Service.AccAuditService;
 
 @RestController
 public class AccAuditController {
+
+	@Autowired
 	private AccAuditService accAudit;
 
 	public AccAuditController(AccAuditService accAudit) {
@@ -21,24 +24,23 @@ public class AccAuditController {
 
 	@PostMapping("/audit")
 	public String saveAccount(@RequestBody AccAudit acc) {
-		 accAudit.createAcc(acc);
-		 return "Save Data Successfully";
+		accAudit.createAcc(acc);
+		return "Save Data Successfully";
 	}
 
-	@DeleteMapping("/accaudit/{id}")
+	@DeleteMapping("/audit/{id}")
 	public String delAcc(@PathVariable int id) {
-		return 	accAudit.deleteAcc(id);
-	
+		return accAudit.deleteAcc(id);
 
 	}
 
-	@GetMapping("getaudit/{id}")
+	@GetMapping("/audit/{id}")
 	public AccAudit getuser(@PathVariable int id) {
 
 		return accAudit.getdetail(id);
 	}
 
-	@PutMapping("accaudit/update/{id}")
+	@PutMapping("/audit/{id}")
 	public AccAudit update(@PathVariable int id, @RequestBody AccAudit acc) {
 		return accAudit.updateAcc(id, acc);
 
