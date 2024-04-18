@@ -23,7 +23,8 @@ public class AccAuditController {
 	}
 
 	@PostMapping("/audit")
-	public String saveAccount(@RequestBody AccAudit acc) {
+	public String saveAccount(@RequestBody AccAudit acc) 
+	{
 		accAudit.createAcc(acc);
 		return "Save Data Successfully";
 	}
